@@ -2,7 +2,12 @@ version: "3.8"
 services:
   service1:
     image: node:latest
-    
+    working_dir: /app
+    volumes:
+      - ./service1:/app
+    entrypoint: ["node", "app.js"]
+    ports:
+      - 3000:3000
 
   # rabbitmq:
 
