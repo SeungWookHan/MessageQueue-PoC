@@ -11,4 +11,11 @@ services:
 
   # rabbitmq:
 
-  # service2:
+  service2:
+    image: node:latest
+    working_dir: /app
+    volumes:
+      - ./service2:/app
+    entrypoint: ["node", "app.js"]
+    ports:
+      - 3001:3000
