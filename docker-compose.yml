@@ -5,7 +5,7 @@ services:
     working_dir: /app
     volumes:
       - ./service1:/app
-    entrypoint: ["node", "app.js"]
+    entrypoint: ["npm", "start"]
     ports:
       - 3000:3000
 
@@ -25,7 +25,7 @@ services:
     working_dir: /app
     volumes:
       - ./service2:/app
-    entrypoint: ["node", "app.js"]
+    entrypoint: ["npm", "start"]
     ports:
       - 3001:3000
 
