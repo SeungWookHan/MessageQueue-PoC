@@ -9,7 +9,16 @@ services:
     ports:
       - 3000:3000
 
-  # rabbitmq:
+  rabbitmq:
+    image: rabbitmq:3-management
+    volumes:
+        - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+        - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    ports:
+        - 5672:5672
+        - 15672:15672
+    networks:
+        - rabbitmq_go_net
 
   service2:
     image: node:latest
@@ -19,3 +28,7 @@ services:
     entrypoint: ["node", "app.js"]
     ports:
       - 3001:3000
+
+networks:
+  rabbitmq_go_net:
+    driver: bridge
