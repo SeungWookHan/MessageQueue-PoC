@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const port = 3001
 
+const rabbit = require('./amqpConsumer')
+
 app.get('/', (req, res) => {
   res.send('Hello World! This is server2')
 })
